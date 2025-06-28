@@ -1,0 +1,3034 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1150</width>
+    <height>812</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QTabWidget" name="main">
+      <property name="currentIndex">
+       <number>4</number>
+      </property>
+      <widget class="QWidget" name="guidanceTab">
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Guidance&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <attribute name="title">
+        <string>Guidance</string>
+       </attribute>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>1111</width>
+          <height>701</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_22">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_13">
+           <item>
+            <widget class="QTextBrowser" name="iphra_intro"/>
+           </item>
+           <item>
+            <widget class="QGraphicsView" name="iphra_image"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QTextBrowser" name="iphra_steps_overview"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="samplesizeTab">
+       <attribute name="title">
+        <string>Sample Size</string>
+       </attribute>
+       <widget class="QLabel" name="ss_total_pop_label">
+        <property name="geometry">
+         <rect>
+          <x>493</x>
+          <y>20</y>
+          <width>141</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Total Population (people)</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ss_total_pop_input">
+        <property name="geometry">
+         <rect>
+          <x>640</x>
+          <y>20</y>
+          <width>172</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>60</y>
+          <width>572</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_27">
+         <item>
+          <widget class="QRadioButton" name="ss_srs_select">
+           <property name="text">
+            <string>Simple Random Sampling</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="ss_systematic_select">
+           <property name="text">
+            <string>Systematic Random Sampling</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="ss_clustersampling">
+           <property name="text">
+            <string>Cluster Sampling</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>11</y>
+          <width>472</width>
+          <height>701</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_22">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_23">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_14">
+             <item>
+              <widget class="QLabel" name="ss_hh_box_label">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Box</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <property name="text">
+                <string>Household Sample Size Calculator</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout">
+               <item row="0" column="0">
+                <widget class="QLabel" name="ss_hh_prev_label">
+                 <property name="text">
+                  <string>Estimated Prevalence (%)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="ss_hh_prev_input"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="ss_hh_precision_label">
+                 <property name="text">
+                  <string>Desired Precision (+/-)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="ss_hh_precision_input"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="ss_hh_deff_label">
+                 <property name="text">
+                  <string>Design Effect</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="ss_hh_deff_input"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="ss_hh_nonresponse_label">
+                 <property name="text">
+                  <string>Non-Response Rate (%)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="ss_hh_nonresponse_input"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_15">
+             <item>
+              <widget class="QPushButton" name="ss_hh_calculate">
+               <property name="text">
+                <string>Calculate</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <item row="0" column="0">
+                <widget class="QLabel" name="ss_hh_result_label">
+                 <property name="text">
+                  <string>Sample Size (Households)</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="ss_hh_result_value">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_24">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_17">
+             <item>
+              <widget class="QLabel" name="ss_ind_box_label">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Box</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <property name="text">
+                <string>Individual Sample Size Calculator</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout_3">
+               <item row="0" column="0">
+                <widget class="QLabel" name="ss_ind_prev_label">
+                 <property name="text">
+                  <string>Estimated Prevalence (%)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="ss_ind_prev_input"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="ss_ind_precision_label">
+                 <property name="text">
+                  <string>Desired Precision (+/-)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="ss_ind_precision_input"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="ss_ind_deff_label">
+                 <property name="text">
+                  <string>Design Effect</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="ss_ind_deff_input"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="ss_ind_nonresponse_label">
+                 <property name="text">
+                  <string>Non-Response Rate (%)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="ss_ind_nonresponse_input"/>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="ss_ind_hhsize_label">
+                 <property name="text">
+                  <string>Mean Household Size</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="ss_ind_hhsize_input"/>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="ss_ind_proppop_label">
+                 <property name="text">
+                  <string>Percent sub-group in population (%)</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLineEdit" name="ss_ind_proppop_input"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_16">
+             <item>
+              <widget class="QPushButton" name="ss_ind_calculate">
+               <property name="text">
+                <string>Calculate</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <item row="0" column="0">
+                <widget class="QLabel" name="ss_ind_result_label">
+                 <property name="text">
+                  <string>Sample Size (Individuals)</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="ss_ind_result_value">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="ss_ind_hh_result_label">
+                 <property name="text">
+                  <string>Sample Size (Households)</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="ss_ind_hh_result_value">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_25">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_19">
+             <item>
+              <widget class="QLabel" name="ss_mortality_box_label">
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Box</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <property name="text">
+                <string>Mortality Sample Size Calculator</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout_4">
+               <item row="0" column="0">
+                <widget class="QLabel" name="ss_mortality_rate_label">
+                 <property name="text">
+                  <string>Estimated Mortality Rate</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="ss_mortality_rate_input"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="ss_mortality_precision_label">
+                 <property name="text">
+                  <string>Desired Precision (+/-)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="ss_mortality_precision_input"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="ss_mortality_deff_label">
+                 <property name="text">
+                  <string>Design Effect</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="ss_mortality_deff_input"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="ss_mortality_days_label">
+                 <property name="text">
+                  <string>Days Recall Period</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="ss_mortality_days_input"/>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="ss_mortality_hhsize_label">
+                 <property name="text">
+                  <string>Average Household Size</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="ss_mortality_hhsize_input"/>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="ss_mortality_nonresponse_label">
+                 <property name="text">
+                  <string>Non-Response Rate (%)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLineEdit" name="ss_mortality_nonresponse_input"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_18">
+             <item>
+              <widget class="QPushButton" name="ss_mortality_calculate">
+               <property name="text">
+                <string>Calculate</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QGridLayout" name="gridLayout_3">
+               <item row="0" column="0">
+                <widget class="QLabel" name="ss_mortality_ind_label">
+                 <property name="text">
+                  <string>Sample Size (Individuals)</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="ss_mortality_ind_value">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="ss_mortality_persontime_label">
+                 <property name="text">
+                  <string>Sample Size (Person-Time)</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="ss_mortality_persontime_value">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="ss_mortality_hh_label">
+                 <property name="text">
+                  <string>Sample Size (Households)</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="ss_mortality_hh_value">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QTextBrowser" name="sample_size_instructions">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>91</y>
+          <width>631</width>
+          <height>251</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>490</x>
+          <y>350</y>
+          <width>631</width>
+          <height>361</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_20">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_26">
+           <item>
+            <widget class="QLabel" name="ss_planning_box_label">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <property name="text">
+              <string>Planning Parameters</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="ss_planning_calculate">
+             <property name="text">
+              <string>Calculate</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="10" column="2" rowspan="2">
+            <widget class="QLabel" name="ss_planning_nonwork_label">
+             <property name="text">
+              <string># non-work hours (intros, breaks, etc.) per day</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2" rowspan="3">
+            <widget class="QLabel" name="ss_planning_interview_label">
+             <property name="text">
+              <string>Avg. Interview Time + Walking to Next HH</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="ss_planning_end_label">
+             <property name="text">
+              <string>Daily End Time</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" rowspan="2">
+            <widget class="QLabel" name="ss_planning_teams_label">
+             <property name="text">
+              <string># of teams</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2" rowspan="4">
+            <widget class="QLabel" name="ss_planning_travel_label">
+             <property name="text">
+              <string>Average Travel Time to Site (Back and Forth)</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" rowspan="3">
+            <widget class="QLineEdit" name="ss_planning_hh_input"/>
+           </item>
+           <item row="9" column="0" rowspan="3">
+            <widget class="QLabel" name="ss_mortality_psu_label">
+             <property name="text">
+              <string># of PSUs / Team / Day</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" rowspan="2">
+            <widget class="QLineEdit" name="ss_planning_teams_input"/>
+           </item>
+           <item row="0" column="2" rowspan="2">
+            <widget class="QLabel" name="ss_planning_start_label">
+             <property name="text">
+              <string>Daily Start Time</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" rowspan="3">
+            <widget class="QLabel" name="ss_planning_hh_label">
+             <property name="text">
+              <string>Households Needed</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" rowspan="4">
+            <widget class="QLabel" name="ss_mortality_enum_label">
+             <property name="text">
+              <string># of enumerators / team</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1" rowspan="3">
+            <widget class="QLineEdit" name="ss_mortality_psu_input">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="3" rowspan="2">
+            <widget class="QLineEdit" name="ss_planning_nonwork_input">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3" rowspan="3">
+            <widget class="QLineEdit" name="ss_planning_interview_input"/>
+           </item>
+           <item row="6" column="3" rowspan="4">
+            <widget class="QLineEdit" name="ss_planning_travel_input">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1" rowspan="4">
+            <widget class="QLineEdit" name="ss_mortality_enum_input"/>
+           </item>
+           <item row="0" column="3" rowspan="2">
+            <widget class="QTimeEdit" name="ss_planning_start_input"/>
+           </item>
+           <item row="2" column="3">
+            <widget class="QTimeEdit" name="ss_planning_end_input"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QLabel" name="ss_planning_num_psu_label">
+             <property name="text">
+              <string>Number of Clusters/PSUs Needed</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="ss_planning_num_psu_value">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="ss_planning_num_days_label">
+             <property name="text">
+              <string>Number of Data Collection Days</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="ss_planning_num_days_value">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="samplingTab">
+       <attribute name="title">
+        <string>Sampling</string>
+       </attribute>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>1111</width>
+          <height>701</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_30">
+         <item>
+          <widget class="QTextBrowser" name="sampling_instructions"/>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_23">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QRadioButton" name="sampling_srs_select">
+               <property name="text">
+                <string>Simple Random Sampling</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="sampling_systematic_select">
+               <property name="text">
+                <string>Systematic Random Sampling</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="sampling_clustersampling_select">
+               <property name="text">
+                <string>Cluster Sampling</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QTableWidget" name="sampling_table">
+             <property name="rowCount">
+              <number>100</number>
+             </property>
+             <property name="columnCount">
+              <number>3</number>
+             </property>
+             <attribute name="horizontalHeaderVisible">
+              <bool>true</bool>
+             </attribute>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <column>
+              <property name="text">
+               <string>PSU Name</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Population Size</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Selected PSUs</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_28">
+             <item>
+              <widget class="QLabel" name="sampling_num_psu_label">
+               <property name="text">
+                <string>Number of Clusters/Primary Sampling Units to Sample:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="sampling_num_psu_input"/>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_29">
+             <item>
+              <widget class="QPushButton" name="sampling_load_sframe">
+               <property name="text">
+                <string>Load Sampling Frame (CSV)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="sampling_draw_sample">
+               <property name="text">
+                <string>Draw Sample</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="sampling_export_sampling_results">
+               <property name="text">
+                <string>Export Sampling Results</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="toolTab">
+       <attribute name="title">
+        <string>HH Tool Design</string>
+       </attribute>
+       <widget class="QTextBrowser" name="tool_design_instructions">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>521</width>
+          <height>711</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="tool_design_indicator_select_label">
+        <property name="geometry">
+         <rect>
+          <x>562</x>
+          <y>12</y>
+          <width>214</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <property name="text">
+         <string>Household Kobo Tool Builder</string>
+        </property>
+       </widget>
+       <widget class="QSplitter" name="splitter_4">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>530</y>
+          <width>512</width>
+          <height>191</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QSplitter" name="splitter_3">
+        <property name="geometry">
+         <rect>
+          <x>543</x>
+          <y>40</y>
+          <width>581</width>
+          <height>671</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+         <layout class="QHBoxLayout" name="horizontalLayout_31">
+          <item>
+           <widget class="QPushButton" name="tool_design_add_indicator">
+            <property name="text">
+             <string>Add Indicators</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="tool_design_remove_indicator">
+            <property name="text">
+             <string>Remove Indicators</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="tool_design_export_xlsform">
+            <property name="text">
+             <string>Create XLSForm</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <widget class="QListWidget" name="tool_design_indicator_list_full"/>
+         <widget class="QListWidget" name="tool_design_indicator_list_ordered"/>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="kitoolsTab">
+       <attribute name="title">
+        <string>KI Tool Design</string>
+       </attribute>
+       <widget class="QLabel" name="ki_tool_communityki_label">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>10</y>
+          <width>511</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <property name="text">
+         <string>Community Key Informant Tool Builder</string>
+        </property>
+       </widget>
+       <widget class="QSplitter" name="splitter_5">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>80</y>
+          <width>512</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QListWidget" name="ki_tool_communityki_indicator_list_full"/>
+        <widget class="QListWidget" name="ki_tool_communityki_indicator_list_ordered"/>
+       </widget>
+       <widget class="QLabel" name="ki_tool_fslki_label">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>280</y>
+          <width>511</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <property name="text">
+         <string>FSL Provider Key Informant Tool Builder</string>
+        </property>
+       </widget>
+       <widget class="QSplitter" name="splitter_6">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>350</y>
+          <width>512</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QListWidget" name="ki_tool_fslki_indicator_list_full"/>
+        <widget class="QListWidget" name="ki_tool_fslki_indicator_list_ordered"/>
+       </widget>
+       <widget class="QLabel" name="ki_tool_healthki_label">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>190</y>
+          <width>511</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <property name="text">
+         <string>Health Service Provider Key Informant Tool Builder</string>
+        </property>
+       </widget>
+       <widget class="QSplitter" name="splitter_7">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>260</y>
+          <width>512</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QListWidget" name="ki_tool_healthki_indicator_list_full"/>
+        <widget class="QListWidget" name="ki_tool_healthki_indicator_list_ordered"/>
+       </widget>
+       <widget class="QLabel" name="ki_tool_healthobs_label">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>460</y>
+          <width>511</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <property name="text">
+         <string>Health Facility Observation Tool Builder</string>
+        </property>
+       </widget>
+       <widget class="QSplitter" name="splitter_8">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>530</y>
+          <width>512</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QListWidget" name="ki_tool_healthobs_indicator_list_full"/>
+        <widget class="QListWidget" name="ki_tool_healthobs_indicator_list_ordered"/>
+       </widget>
+       <widget class="QTextBrowser" name="ki_tool_design_instructions">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>511</width>
+          <height>151</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>610</x>
+          <y>570</y>
+          <width>421</width>
+          <height>131</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="0" column="0">
+          <widget class="QLabel" name="ki_tool_communityobs_label">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <property name="text">
+            <string>Community Observation Tool</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="ki_tool_communityobs_create_xlsform">
+           <property name="text">
+            <string>Create XLSForm</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="ki_tool_latrineobs_label">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <property name="text">
+            <string>Latrine Observation Tool</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="ki_tool_latrineobs_create_xlsform">
+           <property name="text">
+            <string>Create XLSForm</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="ki_tool_waterpointobs_label">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);
+font: 81 12pt &quot;Ubuntu&quot;;</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <property name="text">
+            <string>Water Point Observation Tool</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="ki_tool_waterpointobs_create_xlsform">
+           <property name="text">
+            <string>Create XLSForm</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>690</x>
+          <y>40</y>
+          <width>369</width>
+          <height>29</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_32">
+         <item>
+          <widget class="QPushButton" name="ki_tool_communityki_add_indicator">
+           <property name="text">
+            <string>Add Indicators</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ki_tool_communityki_remove_indicator">
+           <property name="text">
+            <string>Remove Indicators</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ki_tool_communityki_create_xlsform">
+           <property name="text">
+            <string>Create XLSForm</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>690</x>
+          <y>310</y>
+          <width>369</width>
+          <height>29</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_33">
+         <item>
+          <widget class="QPushButton" name="ki_tool_fslki_add_indicator">
+           <property name="text">
+            <string>Add Indicators</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ki_tool_fslki_remove_indicator">
+           <property name="text">
+            <string>Remove Indicators</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ki_tool_fslki_create_xlsform">
+           <property name="text">
+            <string>Create XLSForm</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>220</y>
+          <width>369</width>
+          <height>29</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_34">
+         <item>
+          <widget class="QPushButton" name="ki_tool_healthki_add_indicator">
+           <property name="text">
+            <string>Add Indicators</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ki_tool_healthki_remove_indicator">
+           <property name="text">
+            <string>Remove Indicators</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ki_tool_healthki_create_xlsform">
+           <property name="text">
+            <string>Create XLSForm</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>490</y>
+          <width>369</width>
+          <height>29</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_35">
+         <item>
+          <widget class="QPushButton" name="ki_tool_healthobs_add_indicator">
+           <property name="text">
+            <string>Add Indicators</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ki_tool_healthobs_remove_indicator">
+           <property name="text">
+            <string>Remove Indicators</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ki_tool_healthobs_create_xlsform">
+           <property name="text">
+            <string>Create XLSForm</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="importTab">
+       <attribute name="title">
+        <string>Data Import</string>
+       </attribute>
+       <widget class="QTableView" name="data_import_viewer">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>210</y>
+          <width>1111</width>
+          <height>501</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>1111</width>
+          <height>194</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_37">
+         <item>
+          <widget class="QTextBrowser" name="data_import_instructions"/>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_24">
+           <item>
+            <widget class="QPushButton" name="data_import_file_select">
+             <property name="text">
+              <string>Import IPHRA HH Survey Excel File</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_36">
+             <item>
+              <widget class="QLabel" name="data_import_sheet_select_label">
+               <property name="text">
+                <string>Excel Sheet Select</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="data_import_sheet_select_input">
+               <property name="currentText">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>Select Sheet</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Select excel sheet...</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="qualityTab">
+       <attribute name="title">
+        <string>Data Quality</string>
+       </attribute>
+       <widget class="QTabWidget" name="quality_sectoral_tab">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>10</y>
+          <width>741</width>
+          <height>701</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="currentIndex">
+         <number>7</number>
+        </property>
+        <widget class="QWidget" name="quality_general_tab">
+         <attribute name="title">
+          <string>General</string>
+         </attribute>
+         <widget class="QSplitter" name="quality_general_splitter">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>721</width>
+            <height>651</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QTableView" name="quality_general_summary_table"/>
+          <widget class="QTableView" name="quality_general_summary_table_enum"/>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="quality_fsl_tab">
+         <attribute name="title">
+          <string>FoodSec</string>
+         </attribute>
+         <widget class="QSplitter" name="quality_fsl_splitter">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>721</width>
+            <height>651</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QTableView" name="quality_fsl_summary_table"/>
+          <widget class="QTableView" name="quality_fsl_summary_table_enum"/>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="quality_wash_tab">
+         <attribute name="title">
+          <string>WASH</string>
+         </attribute>
+         <widget class="QSplitter" name="quality_wash_splitter">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>721</width>
+            <height>651</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QTableView" name="quality_wash_summary_table"/>
+          <widget class="QTableView" name="quality_wash_summary_table_enum"/>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="quality_shelter_tab">
+         <attribute name="title">
+          <string>Shelter</string>
+         </attribute>
+         <widget class="QSplitter" name="quality_shelter_splitter">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>721</width>
+            <height>651</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QTableView" name="quality_shelter_summary_table"/>
+          <widget class="QTableView" name="quality_shelter_summary_table_enum"/>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="quality_health_tab">
+         <attribute name="title">
+          <string>Health</string>
+         </attribute>
+         <widget class="QSplitter" name="quality_health_splitter">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>721</width>
+            <height>651</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QTableView" name="quality_health_summary_table"/>
+          <widget class="QTableView" name="quality_health_summary_table_enum"/>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="quality_nutrition_tab">
+         <attribute name="title">
+          <string>Nutrition</string>
+         </attribute>
+         <widget class="QSplitter" name="quality_nutrition_splitter">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>721</width>
+            <height>651</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QTableView" name="quality_nutrition_summary_table"/>
+          <widget class="QTableView" name="quality_nutrition_summary_table_enum"/>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="quality_muac_tab">
+         <attribute name="title">
+          <string>MUAC</string>
+         </attribute>
+         <widget class="QSplitter" name="quality_muac_splitter">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>721</width>
+            <height>651</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QTableView" name="quality_muac_summary_table"/>
+          <widget class="QTableView" name="quality_muac_summary_table_enum"/>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="quality_mortality_tab">
+         <attribute name="title">
+          <string>Mortality</string>
+         </attribute>
+         <widget class="QSplitter" name="quality_mortality_splitter">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>721</width>
+            <height>651</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QTableView" name="quality_mortality_summary_table"/>
+          <widget class="QTableView" name="quality_mortality_summary_table_enum"/>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QTextBrowser" name="quality_instructions">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>361</width>
+          <height>701</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="datacleaningTab">
+       <attribute name="title">
+        <string>Data Cleaning</string>
+       </attribute>
+       <widget class="QTextBrowser" name="cleaning_instructions">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>361</width>
+          <height>701</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>100</y>
+          <width>741</width>
+          <height>611</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>9</y>
+          <width>758</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_25">
+         <item>
+          <widget class="QSplitter" name="splitter_9">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QPushButton" name="cleaning_create_cleaning_log">
+            <property name="text">
+             <string>Generate Cleaning Logs from Imported Data</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="cleaning_import_cleaning_log">
+            <property name="text">
+             <string>Import Cleaning Logs</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="cleaning_create_clean_dataset">
+            <property name="text">
+             <string>Generate Clean Dataset with Cleaning Log</string>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_38">
+           <item>
+            <widget class="QLabel" name="cleaning_select_log_sheet">
+             <property name="text">
+              <string>Select Cleaning Log Sheet</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cleaning_log_sheet_input">
+             <property name="placeholderText">
+              <string>Select Sheet</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Select cleaning log sheet...</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="analysisTab">
+       <attribute name="title">
+        <string>Data Analysis</string>
+       </attribute>
+       <widget class="QSplitter" name="splitter_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>1111</width>
+          <height>701</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="analysis_agg_select_label">
+              <property name="text">
+               <string>Analysis Aggregation</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="analysis_agg_select_input">
+              <property name="placeholderText">
+               <string>Select Sheet</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>Select grouping or strata variable...</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QPushButton" name="analysis_generate_results">
+              <property name="text">
+               <string>Generate Analyses</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="analysis_download_results">
+              <property name="text">
+               <string>Download Results Tables</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="analysis_download_dsg">
+            <property name="text">
+             <string>Export Partly Filled Data Saturation Grid</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="analysis_instructions"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QTabWidget" name="analysis_sectoral_tab">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="analysis_demographics_tab">
+          <attribute name="title">
+           <string>Demographics</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QScrollArea" name="analysis_demo_scroll">
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="analysis_demo_scroll_area">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>338</width>
+                <height>648</height>
+               </rect>
+              </property>
+              <widget class="QScrollArea" name="analysis_demo_scroll_table">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>791</width>
+                 <height>371</height>
+                </rect>
+               </property>
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <widget class="QWidget" name="analysis_demo_scroll_table_area">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>789</width>
+                  <height>369</height>
+                 </rect>
+                </property>
+                <widget class="QTableView" name="analysis_demo_results_table">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>10</y>
+                   <width>771</width>
+                   <height>611</height>
+                  </rect>
+                 </property>
+                </widget>
+               </widget>
+              </widget>
+              <widget class="QWidget" name="layoutWidget_9">
+               <property name="geometry">
+                <rect>
+                 <x>210</x>
+                 <y>380</y>
+                 <width>581</width>
+                 <height>261</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_12">
+                <item>
+                 <widget class="QFrame" name="analysis_demo_graphic_overall">
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="analysis_demo_graphic_agg">
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="layoutWidget">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>380</y>
+                 <width>254</width>
+                 <height>261</height>
+                </rect>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_14">
+                  <item>
+                   <widget class="QLabel" name="analysis_demo_indicator_select_label">
+                    <property name="text">
+                     <string>Demographics Indicator Graphic Selector</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="analysis_demo_indicator_select_input">
+                    <item>
+                     <property name="text">
+                      <string>Select indicator...</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="analysis_demo_download_graphic_overall">
+                  <property name="text">
+                   <string>Download Overall Graphic</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="analysis_demo_download_graphic_agg">
+                  <property name="text">
+                   <string>Download Grouped Graphic</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="analysis_foodsec_tab">
+          <attribute name="title">
+           <string>FoodSec</string>
+          </attribute>
+          <widget class="QScrollArea" name="analysis_fsl_scroll_table">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>791</width>
+             <height>371</height>
+            </rect>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents_2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>789</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <widget class="QTableView" name="analysis_fsl_results_table">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>771</width>
+               <height>611</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>390</y>
+             <width>581</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QFrame" name="analysis_fsl_graphic_overall">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="analysis_fsl_graphic_agg">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>390</y>
+             <width>217</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <item>
+               <widget class="QLabel" name="analysis_fsl_indicator_select_label">
+                <property name="text">
+                 <string>FSL Indicator Graphic Selector</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="analysis_fsl_indicator_select_input">
+                <item>
+                 <property name="text">
+                  <string>Select indicator...</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="analysis_fsl_download_graphic_overall">
+              <property name="text">
+               <string>Download Overall Graphic</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="analysis_fsl_download_graphic_grouped">
+              <property name="text">
+               <string>Download Grouped Graphic</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="analysis_wash_tab">
+          <attribute name="title">
+           <string>WASH</string>
+          </attribute>
+          <widget class="QScrollArea" name="analysis_wash_scroll_table">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>791</width>
+             <height>371</height>
+            </rect>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="analysis_wash_scroll_table_area">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>789</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <widget class="QTableView" name="analysis_wash_results_table">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>771</width>
+               <height>721</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>390</y>
+             <width>581</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QFrame" name="analysis_wash_graphic_overall">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="analysis_wash_graphic_agg">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>390</y>
+             <width>217</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_15">
+              <item>
+               <widget class="QLabel" name="analysis_wash_indicator_select_label">
+                <property name="text">
+                 <string>WASH Indicator Graphic Selector</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="analysis_wash_indicator_select_input">
+                <item>
+                 <property name="text">
+                  <string>Select indicator...</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="analysis_wash_download_graphic_overall">
+              <property name="text">
+               <string>Download Overall Graphic</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="analysis_wash_download_graphic_agg">
+              <property name="text">
+               <string>Download Grouped Graphic</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="analysis_shelter_tab">
+          <attribute name="title">
+           <string>Shelter</string>
+          </attribute>
+          <widget class="QScrollArea" name="analysis_shelter_scroll_table">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>791</width>
+             <height>371</height>
+            </rect>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="analysis_shelter_scroll_table_area">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>789</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <widget class="QTableView" name="analysis_shelter_table_results">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>771</width>
+               <height>721</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="layoutWidget_4">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>390</y>
+             <width>581</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QFrame" name="analysis_shelter_graphic_overall">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="analysis_shelter_graphic_agg">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>390</y>
+             <width>217</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_16">
+              <item>
+               <widget class="QLabel" name="analysis_shelter_indicator_select_label">
+                <property name="text">
+                 <string>Shelter Indicator Graphic Selector</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="analysis_shelter_indicator_select_input">
+                <item>
+                 <property name="text">
+                  <string>Select indicator...</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="analysis_shelter_download_graphic_overall">
+              <property name="text">
+               <string>Download Overall Graphic</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="analysis_shelter_download_graphic_agg">
+              <property name="text">
+               <string>Download Grouped Graphic</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="analysis_health_tab">
+          <attribute name="title">
+           <string>Health</string>
+          </attribute>
+          <widget class="QScrollArea" name="analysis_health_scroll_table">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>791</width>
+             <height>371</height>
+            </rect>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="analysis_health_scroll_table_area">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>789</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <widget class="QTableView" name="analysis_health_results_table">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>771</width>
+               <height>721</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="layoutWidget_5">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>390</y>
+             <width>581</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <item>
+             <widget class="QFrame" name="analysis_health_graphic_overall">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="analysis_health_graphic_agg">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>390</y>
+             <width>217</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_17">
+              <item>
+               <widget class="QLabel" name="analysis_health_indicator_select_label">
+                <property name="text">
+                 <string>Health Indicator Graphic Selector</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="analysis_health_indicator_select_input">
+                <item>
+                 <property name="text">
+                  <string>Select indicator...</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="analysis_health_download_graphic_overall">
+              <property name="text">
+               <string>Download Overall Graphic</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="analysis_health_download_graphic_agg">
+              <property name="text">
+               <string>Download Grouped Graphic</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="analysis_nutrition_tab">
+          <attribute name="title">
+           <string>Nutrition</string>
+          </attribute>
+          <widget class="QScrollArea" name="analysis_nutrition_scroll_table">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>791</width>
+             <height>371</height>
+            </rect>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="analysis_nutrition_scroll_table_area">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>789</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <widget class="QTableView" name="tableView_6">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>771</width>
+               <height>721</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="layoutWidget_6">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>390</y>
+             <width>581</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <widget class="QFrame" name="analysis_wash_graphic_overall_4">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="analysis_wash_graphic_agg_4">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>390</y>
+             <width>219</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
+              <item>
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>Nutrition Indicator Graphic Selector</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_5">
+                <item>
+                 <property name="text">
+                  <string>Select indicator...</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_10">
+              <property name="text">
+               <string>Download Overall Graphic</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_9">
+              <property name="text">
+               <string>Download Grouped Graphic</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="analysis_muac_tab">
+          <attribute name="title">
+           <string>MUAC</string>
+          </attribute>
+          <widget class="QScrollArea" name="scrollArea_6">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>791</width>
+             <height>371</height>
+            </rect>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents_6">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>789</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <widget class="QTableView" name="tableView_7">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>771</width>
+               <height>721</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="layoutWidget_7">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>390</y>
+             <width>581</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QFrame" name="analysis_wash_graphic_overall_5">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="analysis_wash_graphic_agg_5">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>390</y>
+             <width>217</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_10">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_19">
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>MUAC Indicator Graphic Selector</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_6">
+                <item>
+                 <property name="text">
+                  <string>Select indicator...</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_11">
+              <property name="text">
+               <string>Download Overall Graphic</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_12">
+              <property name="text">
+               <string>Download Grouped Graphic</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="analysis_mortality_tab">
+          <attribute name="title">
+           <string>Mortality</string>
+          </attribute>
+          <widget class="QScrollArea" name="scrollArea_7">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>791</width>
+             <height>371</height>
+            </rect>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents_7">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>789</width>
+              <height>369</height>
+             </rect>
+            </property>
+            <widget class="QTableView" name="tableView_8">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>771</width>
+               <height>721</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="layoutWidget_8">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>390</y>
+             <width>581</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_11">
+            <item>
+             <widget class="QFrame" name="analysis_wash_graphic_overall_6">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="analysis_wash_graphic_agg_6">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>390</y>
+             <width>219</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_11">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_20">
+              <item>
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>Mortality Indicator Graphic Selector</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_7">
+                <item>
+                 <property name="text">
+                  <string>Select indicator...</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_15">
+              <property name="text">
+               <string>Download Overall Graphic</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_16">
+              <property name="text">
+               <string>Download Grouped Graphic</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="reportingTab">
+       <attribute name="title">
+        <string>Reporting</string>
+       </attribute>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>1111</width>
+          <height>701</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_21">
+         <item>
+          <widget class="QTextBrowser" name="reporting_instructions"/>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_12">
+           <item>
+            <widget class="QPushButton" name="reporting_import_dsag">
+             <property name="text">
+              <string>Import Data Saturation Grid</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="reporting_integrated_analysis">
+             <property name="text">
+              <string>Generate and Preview Integrated Analysis</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTableView" name="reporting_integrated_analysis_table"/>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QPushButton" name="reporting_word_report">
+               <property name="text">
+                <string>Generate Preliminary Word Report</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="reporting_powerpoint">
+               <property name="text">
+                <string>Generate Preliminary Powerpoint Report</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="creditsTab">
+       <attribute name="title">
+        <string>Credits</string>
+       </attribute>
+       <widget class="QTextBrowser" name="credits_text">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>1111</width>
+          <height>701</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1150</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Template</string>
+    </property>
+    <addaction name="actionShort_IPHRA"/>
+    <addaction name="actionRecommended_IPHRA"/>
+    <addaction name="actionFull_IPHRA"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionPreview_HH_Tool"/>
+    <addaction name="actionPreview_Community_KI_Tool"/>
+    <addaction name="actionPreview_Health_Service_KI_Tool"/>
+    <addaction name="actionPreview_Health_Facility_Observation_Tool"/>
+    <addaction name="actionPreview_FSL_Provider_KI_Tool"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionShort_IPHRA">
+   <property name="text">
+    <string>Short IPHRA</string>
+   </property>
+  </action>
+  <action name="actionRecommended_IPHRA">
+   <property name="text">
+    <string>Recommended IPHRA</string>
+   </property>
+  </action>
+  <action name="actionFull_IPHRA">
+   <property name="text">
+    <string>Full IPHRA</string>
+   </property>
+  </action>
+  <action name="actionPreview_HH_Tool">
+   <property name="text">
+    <string>Preview HH Tool</string>
+   </property>
+  </action>
+  <action name="actionPreview_Community_KI_Tool">
+   <property name="text">
+    <string>Preview Community KI Tool</string>
+   </property>
+  </action>
+  <action name="actionPreview_Health_Service_KI_Tool">
+   <property name="text">
+    <string>Preview Health Service KI Tool</string>
+   </property>
+  </action>
+  <action name="actionPreview_Health_Facility_Observation_Tool">
+   <property name="text">
+    <string>Preview Health Facility Observation Tool</string>
+   </property>
+  </action>
+  <action name="actionPreview_FSL_Provider_KI_Tool">
+   <property name="text">
+    <string>Preview FSL Provider KI Tool</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
