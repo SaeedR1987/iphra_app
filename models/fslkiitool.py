@@ -1,0 +1,2 @@
+class FslKiiTool(Tool):
+    pass

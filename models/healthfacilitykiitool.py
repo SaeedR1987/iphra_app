@@ -1,0 +1,2 @@
+class HealthFacilityKiiTool(Tool):
+    pass

@@ -1,0 +1,2 @@
+class HouseholdTool(Tool):
+    pass

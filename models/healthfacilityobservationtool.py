@@ -1,0 +1,2 @@
+class HealthFacilityObservationTool(Tool):
+    pass

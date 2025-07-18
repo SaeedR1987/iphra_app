@@ -1,0 +1,2 @@
+class NutKiiTool(Tool):
+    pass

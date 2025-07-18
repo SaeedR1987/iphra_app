@@ -1,0 +1,2 @@
+class CommunityKiiTool(Tool):
+    pass

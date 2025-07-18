@@ -1,0 +1,2 @@
+class LatrineObservationTool(Tool):
+    pass

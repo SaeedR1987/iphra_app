@@ -1,0 +1,2 @@
+class WashKiiTool(Tool):
+    pass
