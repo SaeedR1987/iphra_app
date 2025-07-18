@@ -1,0 +1,16 @@
+{
+  "error_validators_message_input": "Input Error",
+  "error_validate_type_message_empty": "{name} cannot be empty.",
+  "error_validate_type_message_invalid_boolean": "{name} must be a {expected_type.__name__}, not a boolean.",
+  "error_validate_type_invalid_str": "{name} must be a string.",
+  "error_validate_type_invalid_truefalse": "{name} must be either True or False (or 'true'/'false').",
+  "error_validate_type_invalid_float_to_int": "{value} is not a whole number.",
+  "error_validate_type_invalid_type": "Error: {name} must be a valid {expected_type.__name__}.",
+  "error_validate_floatint_invalid_number": "{name} must be a valid number.",
+  "error_validate_floatint_invalid_min": "{name} must be at least {min_value}.",
+  "error_validate_floatint_invalid_max": "{name} must be at most {max_value}.",
+  "error_validate_str_choice_invalid_value": "Invalid value for {name}. Must be one of: {allowed_str}",
+  "error_validate_dataframe_invalid_df": "{name} is not a valid DataFrame.",
+  "error_validate_dataframe_missing_col": "{name} is missing required columns: {', '.join(missing)}
+  
+}
