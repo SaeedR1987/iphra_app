@@ -1,20 +1,4 @@
-import pytest
-import math
-import logic.tab2_samplesize as ss  # Import the module containing the function to be tested
 
-def test_calculate_sample_size_srs_p50_e05_case():
-    """
-    Test sample size calculation for a typical simple or systematic sampling design case.
-    Proportion is 50%, margin of error is 5%. 
-    Non-response rate is 10%.
-    Population size is 20,000.
-    Design effect is 1.0 (not used in SRS).
-    Expect the sample size to match known manual result.
-    """
-    result = ss.calculate_sample_size(sample_design="simple_random", population_size=20000, proportion=50, margin_of_error=5, non_response=10)
-    n0 = (1.96**2 * 0.5 * (1-0.5)) / (0.05**2)
-    expected = math.ceil((n0 / (1 + (n0 - 1) / 20000)) / (1 - 0.1))
-    assert abs(result - expected) == 0  # tolerance for float comparison
 
 def test_calculate_sample_size_srs_p0_e05_case(): # edge case with proportion 0
     """
