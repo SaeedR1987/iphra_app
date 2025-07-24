@@ -1,6 +1,6 @@
 class ReportBuilder:
 
-     def __init__(self, session: Session):
+    def __init__(self, session: Session):
         self.session = session
 
     def build(self, output_path: str):
@@ -50,23 +50,23 @@ class ReportBuilder:
             for i, key in enumerate(keys):
                 row_cells[i].text = str(row[key])
 
-    def generate_pdf_report(session, output_path="reports/output.pdf"):
+    def generate_pdf_report(self, output_path="reports/output.pdf"):
         env = Environment(loader=FileSystemLoader("templates"))
         template = env.get_template("report_template.html")
 
         # Example data pulled from your Session object
         sample_data = {
-            "design": session.sample.design,
-            "n_individuals": session.sample.n_individuals,
-            "n_households": session.sample.n_households
+            "design": self.session.sample.design,
+            "n_individuals": self.session.sample.n_individuals,
+            "n_households": self.session.sample.n_households
         }
 
         data_info = {
-            "n_raw": len(session.data.raw_data),
-            "n_clean": len(session.data.clean_data)
+            "n_raw": len(self.session.data.raw_data),
+            "n_clean": len(self.session.data.clean_data)
         }
 
-        fsl_summary = session.analysis["fsl"].results_summary()  # List of dicts
+        fsl_summary = self.session.analysis["fsl"].results_summary()  # List of dicts
 
         html_out = template.render(
             title="FSL Assessment Report",
@@ -80,3 +80,9 @@ class ReportBuilder:
         HTML(string=html_out, base_url=".").write_pdf(output_path)
 
         print(f"PDF saved to: {output_path}")
+
+    def generate_powerpoint(self):
+        pass
+
+    def generate_protocol_tor(self):
+        pass
