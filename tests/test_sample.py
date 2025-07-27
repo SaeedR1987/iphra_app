@@ -427,18 +427,34 @@ def test_ind_to_hh_sample_size_case_valid():
     assert math.isclose(sample.calculate_sample_size_ind_to_hh()[1], 507*0.9, rel_tol=0.03) # households
 
 def test_mortality_rate_sample_size_case_valid():
+    """
+    This method tests a series of valid sample size inputs for crude mortality sample size calculations and the household conversions.
+    For expected values, results are used from SMART Initiative ENA Software (https://smartmethodology.org/survey-planning-tools/smart-emergency-nutrition-assessment/)
+    Given some small background differences in various sample size calculators, this test evaluates for results within a 3% relative difference (or absolute difference of 1 for very small sample sizes).
+    """
     sample = Sample(total_population=5000, sample_design="simple_random", mortality_rate=0.5, margin_of_error_rate=0.4, non_response_rate=0, design_effect_rate=1, fpc=True, average_household_size_rate=5.5, recall_period=93)
-    
     assert math.isclose(sample.calculate_sample_size_mortality_rate()[0], 1026, rel_tol=0.03) # individuals
     assert math.isclose(sample.calculate_sample_size_mortality_rate()[1], 93*1026, rel_tol=0.03) # person-time
     assert math.isclose(sample.calculate_sample_size_mortality_rate()[2], 187, rel_tol=0.03) # households
+    sample = Sample(total_population=5000, sample_design="simple_random", mortality_rate=0.5, margin_of_error_rate=0.4, non_response_rate=0, design_effect_rate=1, fpc=False, average_household_size_rate=5.5, recall_period=93)
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[0], 1291, rel_tol=0.03) # individuals
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[1], 93*1291, rel_tol=0.03) # person-time
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[2], 235, rel_tol=0.03) # households
+    sample = Sample(total_population=50000, sample_design="simple_random", mortality_rate=0.5, margin_of_error_rate=0.4, non_response_rate=0, design_effect_rate=1, fpc=True, average_household_size_rate=5.5, recall_period=93)
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[0], 1258, rel_tol=0.03) # individuals
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[1], 93*1258, rel_tol=0.03) # person-time
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[2], 229, rel_tol=0.03) # households
+    sample = Sample(total_population=50000, sample_design="simple_random", mortality_rate=0.5, margin_of_error_rate=0.4, non_response_rate=0, design_effect_rate=1, fpc=False, average_household_size_rate=5.5, recall_period=93)
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[0], 1291, rel_tol=0.03) # individuals
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[1], 93*1291, rel_tol=0.03) # person-time
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[2], 235, rel_tol=0.03) # households
 
+    sample = Sample(total_population=5000, sample_design="clustered", mortality_rate=0.5, margin_of_error_rate=0.4, non_response_rate=0, design_effect_rate=2.2, fpc=True, average_household_size_rate=5.5, recall_period=93)
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[0], 1911, rel_tol=0.03) # individuals
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[1], 93*1911, rel_tol=0.03) # person-time
+    assert math.isclose(sample.calculate_sample_size_mortality_rate()[2], 347, rel_tol=0.03) # households
     
-    
 
-
-    type(sample.recall_period)
-    type(sample.margin_of_error_rate)
 
 
 # def test_sample_invalid_population():

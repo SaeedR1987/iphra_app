@@ -393,11 +393,11 @@ class Sample:
             return math.ceil(n /response_rate)
         
         elif sample_design == 'clustered':
-            n0 = (Sample.T**2 * p * (1 - p)) / (e**2)
+            n0 = (Sample.T**2 * p * (1 - p)) / (e**2) * design_effect
             if fpc == True:
-                n = (n0 / (1 + (n0 - 1) / N)) * design_effect
+                n = (n0 / (1 + (n0 - 1) / N))
             elif fpc == False:
-                n = n0 * design_effect
+                n = n0
             else:
                 error_message = f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input."
                 if parent is None:
@@ -525,11 +525,11 @@ class Sample:
             self.result_sample_size_ind_hh = math.ceil(n_hh /response_rate)
             return math.ceil(n_ind), math.ceil(n_hh /response_rate)
         elif sample_design == 'clustered':
-            n0 = (Sample.T**2 * p * (1 - p)) / (e**2)
+            n0 = (Sample.T**2 * p * (1 - p)) / (e**2) * design_effect
             if fpc == True:
-                n_ind = (n0 / (1 + (n0 - 1) / N)) * design_effect
+                n_ind = (n0 / (1 + (n0 - 1) / N))
             elif fpc == False:
-                n_ind = n0  * design_effect
+                n_ind = n0
             else:
                 error_message = f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input."
                 if parent is None:
@@ -601,7 +601,7 @@ class Sample:
         margin_of_error = margin_of_error if margin_of_error is not None else self.margin_of_error_rate 
         non_response = non_response if non_response is not None else self.non_response_rate 
         design_effect= design_effect if design_effect is not None else self.design_effect_rate
-        household_size=household_size if household_size is not None else self.average_household_size
+        household_size=household_size if household_size is not None else self.average_household_size_rate
         recall_period=recall_period if recall_period is not None else self.recall_period
         fpc=fpc if fpc is not None else self.fpc
 
@@ -662,6 +662,7 @@ class Sample:
 
             # Adjust for design effect if applicable
             # Step 2: Convert to number of households
+
             n_households = (n_adj_individuals / household_size)
 
             self.result_sample_size_mortality_ind = math.ceil(n_adj_individuals)
@@ -677,11 +678,11 @@ class Sample:
             # Step 1: Calculate number of people needed
             numerator = Sample.T**2 * r * (1 - r)
             denominator = d**2 * recall_period 
-            n_individuals = numerator / denominator
+            n_individuals = (numerator / denominator) * design_effect
             if fpc == True:
-                n_adj_individuals = (n_individuals * population_size) / (n_individuals + (population_size - 1)) * design_effect
+                n_adj_individuals = (n_individuals * population_size) / (n_individuals + (population_size - 1)) 
             elif fpc == False:
-                n_adj_individuals = n_individuals * design_effect
+                n_adj_individuals = n_individuals
             else:
                 error_message = f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input."
                 if parent is None:
