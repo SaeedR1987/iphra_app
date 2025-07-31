@@ -1,5 +1,6 @@
 import math
 import logic.validators
+import logic.utils
 import datetime
 import pandas as pd
 from PyQt6.QtCore import QTime
@@ -355,20 +356,10 @@ class Sample:
         missing = [key for key, value in required_params.items() if value is None]
 
         if missing:
-            error_message = f"The following parameters are missing or None: {', '.join(missing)}"
-            if parent is None:
-                print(error_message)
-            else:
-                logic.valdiators.show_error(error_message)
-            raise ValueError(error_message)
+            logic.utils.handle_error_message(ValueError, f"The following parameters are missing or None: {', '.join(missing)}")
         
         if sample_design == "clustered" and design_effect is None:
-            error_message = f"Design effect cannot be None if calculating sample size for clustered designs."
-            if parent is None:
-                print(error_message)
-            else:
-                logic.valdiators.show_error(error_message)
-            raise ValueError(error_message)
+            logic.utils.handle_error_message(ValueError, f"Design effect cannot be None if calculating sample size for clustered designs.")
 
         p = proportion / 100  # Convert percentage to proportion
         e = margin_of_error / 100  # Convert percentage to proportion
@@ -383,12 +374,7 @@ class Sample:
             elif fpc == False:
                 n = n0
             else:
-                error_message = f"Use of finite population correction (fpc) must be explicitly True or False. Invalid input."
-                if parent is None:
-                    print(error_message)
-                else:
-                    logic.validators.show_error(error_message)
-                raise ValueError(error_message)
+                logic.utils.handle_error_message(ValueError, f"Use of finite population correction (fpc) must be explicitly True or False. Invalid input.")
             self.result_sample_size = math.ceil(n/response_rate)
             return math.ceil(n /response_rate)
         
@@ -399,22 +385,11 @@ class Sample:
             elif fpc == False:
                 n = n0
             else:
-                error_message = f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input."
-                if parent is None:
-                    print(error_message)
-                else:
-                    logic.validators.show_error(error_message)
-                raise ValueError(error_message)
-            
+                logic.utils.handle_error_message(ValueError, f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input.")            
             self.result_sample_size = math.ceil(n/response_rate)
             return math.ceil(n/response_rate)
         else:
-            error_message = f"Invalid sample design type provided."
-            if parent is None:
-                print(error_message)
-            else:
-                logic.validators.show_error(error_message)
-            raise ValueError(error_message)
+            logic.utils.handle_error_message(ValueError, f"Invalid sample design type provided.")            
 
     def calculate_sample_size_ind_to_hh(self,
                               sample_design = None,
@@ -459,7 +434,7 @@ class Sample:
         int
             The calculated sample size in households, corrected for non-response rate.
         """
-
+        # Initialize parameters with inputs. If no input given, default to the instance attribute value.
         sample_design = sample_design if sample_design is not None else self.sample_design
         population_size = population_size if population_size is not None else self.total_population 
         proportion = proportion if proportion is not None else self.proportion_ind 
@@ -470,6 +445,7 @@ class Sample:
         prop_subpopulation=prop_subpopulation if prop_subpopulation is not None else self.prop_subpopulation
         fpc=fpc if fpc is not None else self.fpc
 
+        # Check if any parameters are missing, if so throw a ValueError
         required_params = {
                             "sample_design": sample_design,
                             "population_size": population_size,
@@ -484,20 +460,10 @@ class Sample:
         missing = [key for key, value in required_params.items() if value is None]
 
         if missing:
-            error_message = f"The following parameters are missing or None: {', '.join(missing)}"
-            if parent is None:
-                print(error_message)
-            else:
-                logic.valdiators.show_error(error_message)
-            raise ValueError(error_message)
+            logic.utils.handle_error_message(ValueError, f"The following parameters are missing or None: {', '.join(missing)}")            
         
         if sample_design == "clustered" and design_effect is None:
-            error_message = f"Design effect cannot be None if calculating sample size for clustered designs."
-            if parent is None:
-                print(error_message)
-            else:
-                logic.valdiators.show_error(error_message)
-            raise ValueError(error_message)
+            logic.utils.handle_error_message(ValueError, f"Design effect cannot be None if calculating sample size for clustered designs.")            
 
         p = proportion / 100  # Convert percentage to proportion
         e = margin_of_error / 100  # Convert percentage to proportion
@@ -513,12 +479,8 @@ class Sample:
             elif fpc == False:
                 n_ind = n0
             else:
-                error_message = f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input."
-                if parent is None:
-                    print(error_message)
-                else:
-                    logic.validators.show_error(error_message)
-                raise ValueError(error_message)
+                logic.utils.handle_error_message(ValueError, f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input.")            
+
             n_hh = n_ind / (household_size*prop_subpopulation)
 
             self.result_sample_size_ind = math.ceil(n_ind)
@@ -531,24 +493,15 @@ class Sample:
             elif fpc == False:
                 n_ind = n0
             else:
-                error_message = f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input."
-                if parent is None:
-                    print(error_message)
-                else:
-                    logic.validators.show_error(error_message)
-                raise ValueError(error_message)
+                logic.utils.handle_error_message(ValueError, f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input.")            
+
             n_hh = n_ind / (household_size*prop_subpopulation)
 
             self.result_sample_size_ind = math.ceil(n_ind)
             self.result_sample_size_ind_hh = math.ceil(n_hh /response_rate)
             return math.ceil(n_ind), math.ceil(n_hh /response_rate)
         else:
-            error_message = f"Invalid sample design type provided."
-            if parent is None:
-                print(error_message)
-            else:
-                logic.validators.show_error(error_message)
-            raise ValueError(error_message)
+            logic.utils.handle_error_message(ValueError, f"Invalid sample design type provided.")            
 
     def calculate_sample_size_mortality_rate(self, sample_design=None, 
                                              mortality_rate=None, 
@@ -619,20 +572,10 @@ class Sample:
         missing = [key for key, value in required_params.items() if value is None]
 
         if missing:
-            error_message = f"The following parameters are missing or None: {', '.join(missing)}"
-            if parent is None:
-                print(error_message)
-            else:
-                logic.valdiators.show_error(error_message)
-            raise ValueError(error_message)
+            logic.utils.handle_error_message(ValueError, f"The following parameters are missing or None: {', '.join(missing)}")            
         
         if sample_design == "clustered" and design_effect is None:
-            error_message = f"Design effect cannot be None if calculating sample size for cluster or RLC designs."
-            if parent is None:
-                print(error_message)
-            else:
-                logic.valdiators.show_error(error_message)
-            raise ValueError(error_message)
+            logic.utils.handle_error_message(ValueError, f"Design effect cannot be None if calculating sample size for cluster or RLC designs.")            
 
         r = mortality_rate / 10000
         d = margin_of_error / 10000
@@ -651,12 +594,7 @@ class Sample:
             elif fpc == False:
                 n_adj_individuals = n_individuals
             else:
-                error_message = f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input."
-                if parent is None:
-                    print(error_message)
-                else:
-                    logic.validators.show_error(error_message)
-                raise ValueError(error_message)
+                logic.utils.handle_error_message(ValueError, f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input.")            
             
             n_person_time = n_adj_individuals * recall_period
 
@@ -684,12 +622,7 @@ class Sample:
             elif fpc == False:
                 n_adj_individuals = n_individuals
             else:
-                error_message = f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input."
-                if parent is None:
-                    print(error_message)
-                else:
-                    logic.validators.show_error(error_message)
-                raise ValueError(error_message)
+                logic.utils.handle_error_message(ValueError, f"Use of finite population correction (fpc) must be explicitly 'yes'or 'no'. Invalid input.")            
             
             n_person_time = n_adj_individuals * recall_period
 
@@ -705,12 +638,7 @@ class Sample:
                 math.ceil(n_households / response_rate)
             ) 
         else:
-            error_message = f"Invalid sample design type provided."
-            if parent is None:
-                print(error_message)
-            else:
-                logic.validators.show_error(error_message)
-            raise ValueError(error_message)
+            logic.utils.handle_error_message(ValueError, f"Invalid sample design type provided.")            
 
     def calculate_planning_parameters(self,
                                       sample_design=None,
@@ -786,12 +714,7 @@ class Sample:
             missing = [key for key, value in required_params.items() if value is None]
 
             if missing:
-                error_message = f"The following parameters are missing or None: {', '.join(missing)}"
-                if parent is None:
-                    print(error_message)
-                else:
-                    logic.valdiators.show_error(error_message)
-                raise ValueError(error_message)
+                logic.utils.handle_error_message(ValueError, f"The following parameters are missing or None: {', '.join(missing)}")            
 
             # Convert start and end times to datetime objects for calculation
             
@@ -830,12 +753,7 @@ class Sample:
                 return (number_psu_needed, psu_size, number_days_needed)
 
             else:
-                error_message = f"Invalid sample design type provided."
-                if parent is None:
-                    print(error_message)
-                else:
-                    logic.validators.show_error(error_message)
-                raise ValueError(error_message)
+                logic.utils.handle_error_message(ValueError, f"Invalid sample design type provided.")            
 
 
     # def check_sampling_frame(self):

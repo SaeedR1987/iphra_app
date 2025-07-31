@@ -6,13 +6,7 @@ from PyQt6.QtWidgets import QMessageBox
 from datetime import datetime, time
 from typing import Union, Tuple, Optional
 from PyQt6.QtCore import QTime
-
-def show_error(message, parent=None):
-    msg = QMessageBox(parent)
-    msg.setIcon(QMessageBox.Icon.Warning)
-    msg.setWindowTitle("Input Error")
-    msg.setText(message)
-    msg.exec()
+import logic.utils
 
 def validate_type(value, expected_type, name="Value", parent=None):
     """
@@ -31,12 +25,7 @@ def validate_type(value, expected_type, name="Value", parent=None):
 
     # Lists, tuples, and dicts are not valid inputs for this method.
     if isinstance(value, list) or isinstance(value, tuple) or isinstance(value, dict):
-        error_message = f"{name} must be a single value and cannot be a list, tuple, or dict."
-        if parent is None:
-            print(error_message)
-        else:
-            show_error(error_message, parent)
-        raise TypeError(error_message)
+        logic.utils.handle_error_message(TypeError, f"{name} must be a single value and cannot be a list, tuple, or dict.", parent)
 
     # Check possible combinations for expected type str and handle accordingly.
     if expected_type == str:
@@ -45,97 +34,53 @@ def validate_type(value, expected_type, name="Value", parent=None):
         if isinstance(value, str):
             value = value.strip()
             if value == "":
-                error_message = f"{name} cannot be empty."
-                if parent is None:
-                    print(error_message)
-                else:
-                    show_error(error_message, parent)
-                raise ValueError(error_message)
+                logic.utils.handle_error_message(ValueError, f"{name} cannot be empty.", parent)
             return True
         
         # If not a string and string is expected, raise TypeError
         if not isinstance(value, str):
-            error_message = f"{name} must be a string."
-            if parent is None:
-                print(error_message)
-            else:
-                show_error(error_message)
-            raise TypeError(error_message)
+            logic.utils.handle_error_message(TypeError, f"{name} must be a string.", parent)
 
     elif expected_type == bool:
                 
         if isinstance(value, str):
             # If str that is not safely convertible to bool, raise ValueError.
-                error_message = f"{name} must be either True or False."
                 if value.lower() not in ("true","True","false", "False"):
-                    if parent is None:
-                        print(error_message)
-                    else:
-                        show_error(error_message, parent)
-                    raise TypeError(error_message)
+                    logic.utils.handle_error_message(ValueError, f"{name} must be either True or False.", parent)
                 return True
         elif (isinstance(value, (int, float)) and not isinstance(value, bool)):
             # Prohibit all other cases from being considered a boolean
-            error_message = f"{name} must be a boolean."
-            if parent is None:
-                print(error_message)
-            else:
-                show_error(error_message, parent)
-            raise TypeError(error_message)
+            logic.utils.handle_error_message(TypeError, f"{name} must be a boolean.", parent)
         elif isinstance(value, bool):
             return True
         else:
             # Prohibit all other cases from being considered a boolean
-            error_message = f"{name} must be a boolean."
-            if parent is None:
-                print(error_message)
-            else:
-                show_error(error_message, parent)
-            raise TypeError(error_message)
+            logic.utils.handle_error_message(TypeError, f"{name} must be a boolean.", parent)
+
                     
     elif expected_type == float:
         
         # If boolean and expected type is int or float, raise TypeError
         if isinstance(value, bool):
-            error_message = f"{name} must be a {expected_type.__name__}, not a boolean."
-            if parent is None:
-                print(error_message)
-            else:
-                show_error(error_message, parent)
-            raise TypeError(error_message)
+            logic.utils.handle_error_message(TypeError, f"{name} must be a {expected_type.__name__}, not a boolean.", parent)
         elif isinstance(value, str):
             try:
                 expected_type(value)
                 return True
             except:
-                error_message = f"{name} cannot be converted to float."
-                if parent is None:
-                    print(error_message)
-                else:
-                    show_error(error_message, parent)
-                raise TypeError(error_message)
+                logic.utils.handle_error_message(TypeError, f"{name} cannot be converted to float.", parent)
         elif (isinstance(value, (int, float)) and not isinstance(value, bool)):
             return True
         else:
             # Prohibit all other cases from being considered a boolean
-            error_message = f"{name} must be a float."
-            if parent is None:
-                print(error_message)
-            else:
-                show_error(error_message, parent)
-            raise TypeError(error_message)
+            logic.utils.handle_error_message(TypeError, f"{name} must be a float.", parent)
 
     elif expected_type == int:
 
         if isinstance(value, float) and not isinstance(value, bool): 
         # If float not safely convertible to an integer, return ValueError
             if not value.is_integer():
-                error_message = f"{value} is not a whole number."
-                if parent is None:
-                    print(error_message)
-                else:
-                    show_error(error_message, parent)
-                raise ValueError(error_message)
+                logic.utils.handle_error_message(ValueError, f"{value} is not a whole number.", parent)
             else:
                 return True
         elif isinstance(value, str):
@@ -143,33 +88,19 @@ def validate_type(value, expected_type, name="Value", parent=None):
                 expected_type(value)
                 return True
             except:
-                error_message = f"{name} cannot be converted to int."
-                if parent is None:
-                    print(error_message)
-                else:
-                    show_error(error_message, parent)
-                raise TypeError(error_message)
+                logic.utils.handle_error_message(TypeError, f"{name} cannot be converted to int.", parent)
         elif isinstance(value, int) and not isinstance(value, bool):
             return True
         else:
-                error_message = f"{name} must be a {expected_type.__name__}."
-                if parent is None:
-                    print(error_message)
-                else:
-                    show_error(error_message, parent)
-                raise TypeError(error_message)
+            logic.utils.handle_error_message(TypeError, f"{name} must be a {expected_type.__name__}.", parent)
+
     else:
         
     # if value is of expected type, return True
         if isinstance(value, expected_type):
             return True
         else:
-            error_message = f"{name} must be a valid {expected_type.__name__}."
-            if parent is None:
-                print(error_message)
-            else:
-                show_error(error_message, parent)
-            raise TypeError(error_message)
+            logic.utils.handle_error_message(TypeError, f"{name} must be a valid {expected_type.__name__}.", parent)
     
 def validate_float(text, name, min_value=None, max_value=None, parent=None):
     """
@@ -196,19 +127,10 @@ def validate_float(text, name, min_value=None, max_value=None, parent=None):
             return False, None
 
     if min_value is not None and value < min_value:
-        error_message = f"{name} must be at least {min_value}."
-        if parent is None:
-            print(error_message)
-        else:
-            show_error(error_message, parent)
-        raise ValueError(error_message)
+        logic.utils.handle_error_message(ValueError, f"{name} must be at least {min_value}.")            
+
     if max_value is not None and value > max_value:
-        error_message = f"{name} must be at most {max_value}."
-        if parent is None:
-            print(error_message)
-        else:
-            show_error(error_message, parent)
-        raise ValueError(error_message)
+        logic.utils.handle_error_message(ValueError, f"{name} must be at most {max_value}.")            
 
     return True, value
 

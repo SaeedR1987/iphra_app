@@ -454,7 +454,15 @@ def test_mortality_rate_sample_size_case_valid():
     assert math.isclose(sample.calculate_sample_size_mortality_rate()[1], 93*1911, rel_tol=0.03) # person-time
     assert math.isclose(sample.calculate_sample_size_mortality_rate()[2], 347, rel_tol=0.03) # households
     
-
+def test_general_sample_size_case_invalid():
+    """
+    This method tests a series for appropriate error messaging when invalid inputs are given for general sample size calculations.
+    """
+    # Simple random sampling
+    sample = Sample(total_population="fifty", sample_design="simple_random", proportion=50, margin_of_error=10, non_response=0, design_effect=1, fpc=True)
+    assert math.isclose(sample.calculate_sample_size(), 94, rel_tol=0.03)
+    sample = Sample(total_population=5000, sample_design="simple_random", proportion=50, margin_of_error=10, non_response=0, design_effect=1, fpc=False)
+    assert math.isclose(sample.calculate_sample_size(), 97, rel_tol=0.03)
 
 
 # def test_sample_invalid_population():
